@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050505">
+<title>松·健身 · 扫码访问</title>
+<style>
+:root {
+  --primary: #4fb3e8;
+  --primary-light: #8fd8f7;
+  --t1: #eef3f6;
+  --t2: #a6b3bc;
+  --t3: #66737d;
+  --border: #232a31;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  min-height: 100vh;
+  background: #050505;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(600px 300px at 20% 0%, rgba(79,179,232,.12), transparent 60%),
+    radial-gradient(500px 280px at 85% 100%, rgba(103,212,245,.08), transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+.canvas {
+  width: 100%;
+  max-width: 380px;
+  background: linear-gradient(160deg, #12161a 0%, #0a0d10 100%);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 40px 32px 32px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,.6), 0 0 48px rgba(79,179,232,.08);
+}
+.canvas::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 32px; right: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(79,179,232,.6), transparent);
+}
+.canvas::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -28px;
+  background:
+    radial-gradient(120% 100% at 50% 45%, rgba(5,5,5,0) 45%, rgba(5,5,5,.35) 100%),
+    linear-gradient(rgba(6,9,12,.18), rgba(6,9,12,.38)),
+    url('dl3.jpg') center/cover no-repeat;
+  filter: blur(2px) saturate(0) brightness(.95) contrast(1.05);
+  transform: scale(1.03);
+  pointer-events: none;
+}
+.brand {
+  font-size: 11px;
+  letter-spacing: 6px;
+  color: var(--t3);
+  text-transform: uppercase;
+}
+.title {
+  margin-top: 12px;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--t1);
+  letter-spacing: 2px;
+}
+.title em {
+  font-style: normal;
+  color: var(--primary);
+  text-shadow: 0 0 24px rgba(79,179,232,.45);
+}
+.subtitle {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--t2);
+  letter-spacing: 3px;
+}
+.qr-box {
+  margin: 96px auto 0;
+  width: 220px;
+  height: 220px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 0 0 1px rgba(79,179,232,.35), 0 0 32px rgba(79,179,232,.25);
+}
+.qr-box img { width: 100%; height: 100%; display: block; }
+.motto {
+  margin-top: 24px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--t1);
+  text-shadow: 0 0 16px rgba(79,179,232,.35);
+}
+.footer {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--t3);
+}
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="brand">Premium Dark</div>
+  <div class="title">松·<em>健身</em></div>
+  <div class="subtitle">私人健身教练 · 训练 / 饮食 / 体检</div>
+  <div class="qr-box"><img src="qr.png" alt="扫码打开松·健身"></div>
+  <div class="motto">文明其精神 野蛮其体魄</div>
+  <div class="footer">TRAIN · EAT · HYDRATE</div>
+</div>
+</body>
+</html>
