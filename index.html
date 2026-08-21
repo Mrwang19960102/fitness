@@ -7,28 +7,28 @@
 <title>松·健身</title>
 <style>
 :root {
-  --primary: #d4af37;
-  --primary-light: #f0d488;
-  --primary-soft: rgba(212,175,55,.12);
-  --accent: #d4af37;
-  --accent-light: #f0d488;
-  --accent-soft: #241a08;
-  --water: #6fb1dc;
-  --water-soft: #0e1e2a;
+  --primary: #4fb3e8;
+  --primary-light: #8fd8f7;
+  --primary-soft: rgba(79,179,232,.12);
+  --accent: #4fb3e8;
+  --accent-light: #8fd8f7;
+  --accent-soft: #0c1a24;
+  --water: #67d4f5;
+  --water-soft: #0a1c26;
   --bg: #050505;
-  --card: #121212;
-  --t1: #f5f0e6;
-  --t2: #b3aa99;
-  --t3: #7a7264;
-  --divider: #1c1a16;
-  --border: #2a2620;
+  --card: #12161a;
+  --t1: #eef3f6;
+  --t2: #a6b3bc;
+  --t3: #66737d;
+  --divider: #1a2026;
+  --border: #232a31;
   --err: #e05252;
   --err-soft: #2a1212;
   --ok: #6abe7c;
   --shadow: 0 1px 6px rgba(0,0,0,.55);
-  --glow-primary: 0 0 12px rgba(212,175,55,.22);
-  --glow-accent: 0 0 12px rgba(212,175,55,.3);
-  --glow-water: 0 0 12px rgba(111,177,220,.3);
+  --glow-primary: 0 0 12px rgba(79,179,232,.25);
+  --glow-accent: 0 0 12px rgba(79,179,232,.3);
+  --glow-water: 0 0 12px rgba(103,212,245,.3);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 body {
@@ -41,26 +41,24 @@ body {
 #app { max-width: 480px; margin: 0 auto; min-height: 100vh; padding-bottom: 76px; }
 .view { padding: 0 16px 16px; }
 
-/* 顶部渐变头 */
 .header {
   margin: 0 -16px 12px;
   padding: 20px 16px;
-  background: linear-gradient(135deg, rgba(212,175,55,.16) 0%, rgba(212,175,55,.04) 100%);
-  border-bottom: 1px solid rgba(212,175,55,.3);
+  background: linear-gradient(135deg, rgba(79,179,232,.16) 0%, rgba(79,179,232,.04) 100%);
+  border-bottom: 1px solid rgba(79,179,232,.3);
   border-radius: 0 0 20px 20px;
   color: var(--t1);
 }
 .header-top { display: flex; justify-content: space-between; align-items: flex-start; }
 .greeting { font-size: 20px; font-weight: 700; color: #fff; }
 .date { font-size: 12px; color: var(--t2); margin-top: 4px; }
-.goal-chip { background: rgba(212,175,55,.12); border: 1px solid rgba(212,175,55,.35); border-radius: 999px; padding: 4px 12px; font-size: 11px; white-space: nowrap; color: #fff; }
-.header-stats { display: flex; margin-top: 16px; background: rgba(212,175,55,.08); border-radius: 12px; padding: 12px 8px; }
+.goal-chip { background: rgba(79,179,232,.12); border: 1px solid rgba(79,179,232,.35); border-radius: 999px; padding: 4px 12px; font-size: 11px; white-space: nowrap; color: #fff; }
+.header-stats { display: flex; margin-top: 16px; background: rgba(79,179,232,.08); border-radius: 12px; padding: 12px 8px; }
 .stat-item { flex: 1; text-align: center; }
 .stat-item b { display: block; font-size: 18px; color: #fff; }
 .stat-item span { font-size: 11px; color: var(--t3); }
 .stat-divider { width: 1px; background: var(--divider); }
 
-/* 卡片 */
 .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); margin-bottom: 12px; }
 .card-head { display: flex; justify-content: space-between; align-items: center; }
 .card-title { display: flex; align-items: center; font-size: 16px; font-weight: 600; }
@@ -70,15 +68,13 @@ body {
 .card-extra { font-size: 12px; color: var(--t3); }
 .card-body { margin-top: 12px; }
 
-/* 标签 */
 .tag { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11px; white-space: nowrap; margin-right: 6px; }
 .tag.green { background: var(--primary-soft); color: var(--t1); }
-.tag.orange { background: var(--accent-soft); color: var(--accent); }
+.tag.orange { background: var(--accent-soft); color: var(--accent-light); }
 .tag.blue { background: var(--water-soft); color: var(--water); }
 .tag.gray { background: var(--divider); color: var(--t3); }
 .tag.red { background: var(--err-soft); color: var(--err); }
 
-/* 按钮 */
 .btn {
   display: flex; align-items: center; justify-content: center;
   height: 40px; border-radius: 999px; border: none;
@@ -86,17 +82,15 @@ body {
   transition: all .2s; cursor: pointer; white-space: nowrap;
 }
 .btn:active { opacity: .9; transform: scale(.98); }
-.btn.accent { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: #1a1408; margin-top: 12px; width: 100%; box-shadow: var(--glow-accent); }
+.btn.accent { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: #0a1620; margin-top: 12px; width: 100%; box-shadow: var(--glow-accent); }
 .btn.done { background: var(--divider); color: var(--t3); box-shadow: none; }
-.btn.water { background: var(--water); color: #06202e; flex: 1; height: 32px; font-size: 13px; font-weight: 500; box-shadow: var(--glow-water); }
-.btn.water-soft { background: var(--water-soft); border: 1px solid rgba(111,177,220,.35); color: var(--water); flex: 1; height: 32px; font-size: 13px; font-weight: 500; }
-.btn.primary { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #1a1408; width: 100px; height: 32px; font-size: 13px; flex-shrink: 0; box-shadow: var(--glow-primary); }
+.btn.water { background: var(--water); color: #0a1620; flex: 1; height: 32px; font-size: 13px; font-weight: 500; box-shadow: var(--glow-water); }
+.btn.water-soft { background: var(--water-soft); border: 1px solid rgba(79,179,232,.35); color: var(--water); flex: 1; height: 32px; font-size: 13px; font-weight: 500; }
+.btn.primary { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #0a1620; width: 100px; height: 32px; font-size: 13px; flex-shrink: 0; box-shadow: var(--glow-primary); }
 
-/* 进度条 */
 .track { width: 100%; height: 8px; background: var(--divider); border-radius: 999px; overflow: hidden; }
 .fill { height: 100%; border-radius: 999px; background: var(--water); transition: width .3s; box-shadow: var(--glow-water); }
 
-/* 行 */
 .row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--divider); }
 .row:last-child { border-bottom: none; }
 .row .name { flex: 1; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -115,22 +109,20 @@ body {
 .tip-card b { color: var(--t1); font-size: 12px; }
 .tip-card p { margin-top: 4px; font-size: 14px; color: var(--t2); line-height: 1.7; }
 
-/* 页头 */
 .page-head { padding: 16px 0 12px; }
 .page-head h1 { font-size: 20px; font-weight: 700; color: #fff; }
 .page-head p { font-size: 12px; color: var(--t3); margin-top: 4px; }
 
-/* 训练日卡片 */
 .day-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); margin-bottom: 12px; }
 .day-card.today { border: 1px solid var(--primary); box-shadow: var(--glow-primary); }
 .day-head { display: flex; align-items: center; cursor: pointer; }
 .day-badge { width: 36px; height: 36px; border-radius: 50%; background: var(--primary-soft); color: var(--t1); display: flex; align-items: center; justify-content: center; font-weight: 600; margin-right: 12px; flex-shrink: 0; }
-.day-card.today .day-badge { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #1a1408; box-shadow: var(--glow-primary); }
+.day-card.today .day-badge { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #0a1620; box-shadow: var(--glow-primary); }
 .day-info { flex: 1; min-width: 0; }
 .day-title { font-size: 15px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .day-meta { font-size: 11px; color: var(--t3); margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .day-right { display: flex; align-items: center; margin-left: 8px; flex-shrink: 0; }
-.today-tag { padding: 2px 8px; background: var(--accent-soft); color: var(--accent); border-radius: 6px; font-size: 11px; }
+.today-tag { padding: 2px 8px; background: var(--accent-soft); color: var(--accent-light); border-radius: 6px; font-size: 11px; }
 .ex-list { margin-top: 12px; border-top: 1px solid var(--divider); }
 .ex-item { padding: 12px 0; border-bottom: 1px solid var(--divider); }
 .ex-item:last-child { border-bottom: none; }
@@ -140,12 +132,11 @@ body {
 .ex-tips { font-size: 12px; color: var(--t3); margin-top: 4px; }
 .ex-bottom { display: flex; align-items: center; margin-top: 6px; }
 .ex-rest { font-size: 11px; color: var(--t3); margin-right: 8px; }
-.day-note { display: block; margin-top: 8px; padding: 8px 12px; background: var(--water-soft); border: 1px solid rgba(111,177,220,.25); border-radius: 6px; font-size: 11px; color: var(--water); line-height: 1.7; }
+.day-note { display: block; margin-top: 8px; padding: 8px 12px; background: var(--water-soft); border: 1px solid rgba(79,179,232,.25); border-radius: 6px; font-size: 11px; color: var(--water); line-height: 1.7; }
 .footer-card { padding: 16px; background: linear-gradient(135deg, var(--primary-soft), var(--card)); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); }
 .footer-card b { color: var(--t1); font-size: 14px; }
 .footer-card p { margin-top: 6px; font-size: 12px; color: var(--t2); line-height: 1.7; }
 
-/* 饮食页 */
 .week-scroll { display: flex; overflow-x: auto; margin: 12px -16px 8px; padding: 0 16px; gap: 8px; scrollbar-width: none; }
 .week-scroll::-webkit-scrollbar { display: none; }
 .week-chip { flex-shrink: 0; height: 36px; display: flex; align-items: center; justify-content: center; padding: 0 14px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; font-size: 11px; color: var(--t2); cursor: pointer; transition: all .2s; white-space: nowrap; }
@@ -153,7 +144,7 @@ body {
 .day-scroll { display: flex; overflow-x: auto; margin: 0 -16px 12px; padding: 0 16px; gap: 8px; scrollbar-width: none; }
 .day-scroll::-webkit-scrollbar { display: none; }
 .day-chip { flex-shrink: 0; width: 64px; height: 32px; display: flex; align-items: center; justify-content: center; background: var(--card); border: 1px solid var(--border); border-radius: 999px; box-shadow: var(--shadow); font-size: 12px; color: var(--t2); cursor: pointer; transition: all .2s; }
-.day-chip.active { background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-color: transparent; color: #1a1408; font-weight: 600; box-shadow: var(--glow-primary); }
+.day-chip.active { background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-color: transparent; color: #0a1620; font-weight: 600; box-shadow: var(--glow-primary); }
 .meal-block { margin-bottom: 16px; }
 .meal-block:last-child { margin-bottom: 0; }
 .meal-head { display: flex; justify-content: space-between; align-items: center; }
@@ -171,17 +162,37 @@ body {
 .principle-label { min-width: 64px; padding: 2px 8px; background: var(--divider); color: var(--t2); border-radius: 6px; font-size: 11px; text-align: center; white-space: nowrap; }
 .principle-text { flex: 1; margin-left: 8px; font-size: 12px; color: var(--t2); line-height: 1.7; }
 
-/* 我的页 */
-.profile-card { margin: 12px 0; padding: 20px 16px; background: linear-gradient(135deg, rgba(212,175,55,.16), rgba(212,175,55,.04)); border: 1px solid rgba(212,175,55,.3); border-radius: 16px; box-shadow: var(--shadow); display: flex; align-items: center; color: var(--t1); }
-.avatar { width: 56px; height: 56px; border-radius: 50%; background: rgba(212,175,55,.15); border: 1px solid rgba(212,175,55,.4); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: #fff; margin-right: 16px; flex-shrink: 0; box-shadow: var(--glow-primary); }
+.tl-item { padding: 12px 0; border-bottom: 1px solid var(--divider); }
+.tl-item:last-child { border-bottom: none; padding-bottom: 0; }
+.tl-head { display: flex; justify-content: space-between; align-items: center; }
+.tl-date { font-size: 14px; font-weight: 600; }
+.tl-org { font-size: 11px; color: var(--t3); }
+.tl-tags { display: flex; flex-wrap: wrap; margin-top: 8px; }
+.tl-tags .tag { margin: 0 6px 6px 0; }
+.trend-row { padding: 10px 0; border-bottom: 1px solid var(--divider); }
+.trend-row:last-child { border-bottom: none; }
+.trend-top { display: flex; justify-content: space-between; align-items: center; }
+.trend-name { font-size: 13px; font-weight: 500; }
+.trend-values { display: flex; align-items: center; }
+.trend-val { font-size: 12px; color: var(--t2); min-width: 44px; text-align: center; }
+.trend-val.last { color: var(--primary-light); font-weight: 600; }
+.trend-arrow { font-size: 10px; color: var(--t3); margin: 0 2px; }
+.trend-note { display: block; margin-top: 4px; font-size: 11px; color: var(--t3); line-height: 1.7; }
+.analysis-item { display: block; padding: 6px 0; font-size: 12px; line-height: 1.7; color: var(--t2); }
+.follow-row { display: flex; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--divider); }
+.follow-row:last-child { border-bottom: none; }
+.follow-dept { min-width: 64px; padding: 2px 8px; background: var(--water-soft); color: var(--water); border-radius: 6px; font-size: 11px; text-align: center; white-space: nowrap; }
+.follow-reason { flex: 1; margin-left: 8px; font-size: 12px; color: var(--t2); line-height: 1.7; }
+
+.profile-card { margin: 12px 0; padding: 20px 16px; background: linear-gradient(135deg, rgba(79,179,232,.16), rgba(79,179,232,.04)); border: 1px solid rgba(79,179,232,.3); border-radius: 16px; box-shadow: var(--shadow); display: flex; align-items: center; color: var(--t1); }
+.avatar { width: 56px; height: 56px; border-radius: 50%; background: rgba(79,179,232,.15); border: 1px solid rgba(79,179,232,.4); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: #fff; margin-right: 16px; flex-shrink: 0; box-shadow: var(--glow-primary); }
 .profile-info { flex: 1; min-width: 0; }
 .profile-info b { font-size: 18px; color: #fff; }
 .profile-info p { font-size: 12px; color: var(--t2); margin-top: 4px; }
 .stats-grid { display: flex; background: var(--card); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); padding: 16px 8px; margin-bottom: 12px; }
 .stats-grid .stat-item b { color: #fff; }
 .stats-grid .stat-item b.blue { color: var(--water); }
-.stats-grid .stat-item b.orange { color: var(--accent); }
-.stats-grid .stat-item span { color: var(--t3); }
+.stats-grid .stat-item b.orange { color: var(--accent-light); }
 .stats-grid .stat-divider { background: var(--divider); }
 .weight-input-row { display: flex; gap: 8px; }
 .weight-input-row input {
@@ -196,10 +207,9 @@ body {
 .note-head .t { font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
 .note-text { font-size: 12px; color: var(--t3); line-height: 1.7; margin-top: 4px; }
 
-/* 底部导航 */
 #tabbar {
   position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
-  width: 100%; max-width: 480px; background: #0a0a0a;
+  width: 100%; max-width: 480px; background: #0a0a0c;
   display: flex; border-top: 1px solid var(--divider);
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -224,7 +234,7 @@ const CN = '一二三四五六日';
 const fmtDate = () => { const d = new Date(); return pad(d.getMonth() + 1) + '月' + pad(d.getDate()) + '日'; };
 
 /* ============ 数据 ============ */
-const profile = { name: 'Song哥', age: 30, height: 171, baseWeight: 70.9, goalWeight: 68.5, heartRate: 54, reportDate: '2026-08-08' };
+const profile = { name: 'Song少', age: 30, height: 171, baseWeight: 70.9, goalWeight: 68.5, heartRate: 54, reportDate: '2026-08-08' };
 const WATER_GOAL = 2500;
 
 const typeLabel = { strength: '力量', cardio: '有氧', sport: '球类', rest: '休息' };
@@ -260,7 +270,7 @@ const weeklyPlan = [
     { name: '热身：快走+髋关节活动', sets: '5分钟', rest: '—', tips: '徒手深蹲10次激活' },
     { name: '杠铃深蹲/高脚杯深蹲', sets: '4×8-10', rest: '休息120秒', tips: '腰背挺直，蹲至大腿与地面平行' },
     { name: '腿举', sets: '3×10-12', rest: '休息90秒', tips: '膝盖对准脚尖，不锁死' },
-    { name: '罗马尼亚硬拉', sets: '3×10-12', rest: '休息90秒', tips: '髋铰链，感受腘绳肌拉伸，不弓背' },
+    { name: '罗马尼亚硬拉', sets: '3×10-12', rest: '休息90秒', tips: '髋链，感受腘绳肌拉伸，不弓背' },
     { name: '坐姿腿弯举', sets: '3×12', rest: '休息60秒', tips: '控制离心2秒' },
     { name: '提踵', sets: '3×15', rest: '休息45秒', tips: '顶端停顿1秒' },
     { name: '卷腹', sets: '3×15', rest: '休息45秒', tips: '下背贴地，呼气起身' } ] },
@@ -276,7 +286,7 @@ function weekLabel(weekStart, index) {
   const start = new Date(weekStart + 'T00:00:00');
   const end = new Date(start);
   end.setDate(start.getDate() + 6);
-  const fmt = (d) => String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  const fmt = (d) => pad(d.getMonth() + 1) + '-' + pad(d.getDate());
   return (names[index] || '') + ' ' + fmt(start) + '~' + fmt(end);
 }
 const dietWeeks = [{ weekStart: '2026-08-17', days: [
@@ -340,6 +350,37 @@ const healthNotes = [
   { title: '超重 体质指数24.2', level: 'warning', text: '较9个月前25.2已下降，控制有效。继续力量+有氧，目标体质指数<23.9（约69kg），每周降0.3-0.5kg。' },
   { title: '窦性心动过缓（心率54）', level: 'ok', text: '规律锻炼者常见表现，无症状通常无病理意义。保持规律作息，心内科随诊即可。' },
   { title: '裸眼视力偏低 / 鼻窦炎', level: 'ok', text: '球类与跑步时戴好眼镜注意安全；鼻窦炎如鼻塞头痛持续，耳鼻喉科评估。' }
+];
+
+const checkupTimeline = [
+  { date: '2026-08-08', org: '南京江宁瑞慈瑞弘', highlights: ['BMI 24.2 超重', '左肾结石4×3mm', '双肾结晶', '尿酸389 正常', '血脂四项 正常', '窦性心动过缓54', '鼻窦炎'] },
+  { date: '2025-11-01', org: '南京瑞慈瑞星', highlights: ['BMI 25.2 超重', '尿酸522↑', '总胆固醇5.70↑', '低密度3.52↑', '双肾结晶', '早期复极综合征', '项韧带钙化', '甲状腺素T4↓'] },
+  { date: '2024-07-21', org: '南京瑞慈瑞祥', highlights: ['BMI 23.6 正常', '尿酸430↑', '肌酸激酶237.6↑', '双肾结晶', '窦性心动过缓58'] }
+];
+const trends = [
+  { name: 'BMI', values: ['23.6', '25.2', '24.2'], status: 'better', note: '2025年超重见顶，2026年回落，体重管理见效' },
+  { name: '尿酸 μmol/L', values: ['430↑', '522↑', '389'], status: 'better', note: '2026年重回正常，运动+饮水干预有效' },
+  { name: '总胆固醇 mmol/L', values: ['4.05', '5.70↑', '4.28'], status: 'better', note: '2025年超标，2026年恢复正常' },
+  { name: '低密度脂蛋白 mmol/L', values: ['2.31', '3.52↑', '2.40'], status: 'better', note: '2026年恢复正常' },
+  { name: '空腹血糖 mmol/L', values: ['4.51', '4.13', '4.29'], status: 'good', note: '历年稳定优秀' },
+  { name: '静息心率 次/分', values: ['60', '56', '54'], status: 'watch', note: '窦性心动过缓逐年递降，与规律锻炼相符，无症状属良性' },
+  { name: '肾脏超声', values: ['结晶', '结晶', '结晶+左肾结石'], status: 'watch', note: '2026年新发4×3mm小结石，饮水是第一要务' }
+];
+const coachAnalysis = [
+  '体重：68.1kg(2024) → 71.6kg(2025) → 70.9kg(2026)，涨势已遏制，继续力量+有氧，目标69kg。',
+  '尿酸与血脂：2025年双双超标，2026年全部恢复正常，证明训练与饮食方案有效，保持下去。',
+  '肾脏：结晶持续3年、2026年进展为小结石，每日饮水≥2500ml是头等任务，配合适度跳跃动作助排石，泌尿外科定期复查。',
+  '心率：60→54次/分，规律锻炼者常见；2025年早期复极多为良性，心内科定期随诊即可。',
+  '肌酸激酶：2024年偏高237.6、2025年恢复，与运动负荷相关；力量训练后留意肌肉酸痛程度。',
+  '甲状腺：2025年T4偏低、2026年超声正常，建议内分泌科复查一次甲功形成闭环。',
+  '项韧带钙化+久坐：每周计划已纳入面拉、弹力带扩胸等颈胸体态矫正训练，工作间隙多做拉伸。'
+];
+const followUps = [
+  { dept: '泌尿外科', reason: '左肾结石4×3mm+双肾结晶，定期超声复查，腰痛/血尿立即就诊' },
+  { dept: '内分泌科', reason: '甲功复查（2025年T4偏低）；尿酸已正常仍建议年度监测' },
+  { dept: '心内科', reason: '窦性心动过缓+早期复极综合征，定期随诊' },
+  { dept: '眼科', reason: '裸眼视力偏低，验光配镜随诊' },
+  { dept: '骨科', reason: '项韧带钙化，颈肩不适随诊' }
 ];
 
 /* ============ 状态（本地增删改查） ============ */
@@ -419,7 +460,7 @@ function viewToday() {
   const preview = plan.exercises.slice(0, 3).map((ex) =>
     '<div class="row"><span class="name">' + ex.name + '</span><span class="sets">' + ex.sets + '</span></div>').join('');
   return '' +
-  '<div class="header"><div class="header-top"><div><div class="greeting">你好，Song哥</div><div class="date">' + fmtDate() + ' · 周' + CN[wd - 1] + ' · 私人教练已就位</div></div><span class="goal-chip">目标 ' + profile.goalWeight + 'kg</span></div>' +
+  '<div class="header"><div class="header-top"><div><div class="greeting">你好，Song少</div><div class="date">' + fmtDate() + ' · 周' + CN[wd - 1] + ' · 私人教练已就位</div></div><span class="goal-chip">目标 ' + profile.goalWeight + 'kg</span></div>' +
   '<div class="header-stats"><div class="stat-item"><b>' + bmi() + '</b><span>体质指数</span></div><div class="stat-divider"></div><div class="stat-item"><b>' + latestWeight().toFixed(1) + '</b><span>体重kg</span></div><div class="stat-divider"></div><div class="stat-item"><b>' + profile.heartRate + '</b><span>静息心率</span></div></div></div>' +
   card('今日训练', plan.duration, '',
     '<div><span class="tag ' + (plan.type === 'rest' ? 'gray' : 'green') + '">' + typeLabel[plan.type] + '</span><b style="font-size:15px">' + plan.title + '</b></div>' +
@@ -472,6 +513,33 @@ function viewDiet() {
     card('饮食总原则', '', '', dietPrinciples.map((p) => '<div class="principle-row"><span class="principle-label">' + p.label + '</span><span class="principle-text">' + p.text + '</span></div>').join(''));
 }
 
+function statusTag(status) {
+  if (status === 'better') return { text: '好转', cls: 'green' };
+  if (status === 'good') return { text: '优秀', cls: 'blue' };
+  return { text: '关注', cls: 'orange' };
+}
+function viewHealth() {
+  const tl = checkupTimeline.map((c) =>
+    '<div class="tl-item"><div class="tl-head"><span class="tl-date">' + c.date + '</span><span class="tl-org">' + c.org + '</span></div>' +
+    '<div class="tl-tags">' + c.highlights.map((h) =>
+      '<span class="tag ' + (h.includes('↑') || h.includes('超重') || h.includes('结石') || h.includes('钙化') || h.includes('↓') ? 'orange' : 'green') + '">' + h + '</span>').join('') + '</div></div>').join('');
+  const tr = trends.map((t) => {
+    const tag = statusTag(t.status);
+    return '<div class="trend-row"><div class="trend-top"><span class="trend-name">' + t.name + '</span>' +
+      '<span class="trend-values"><span class="trend-val">' + t.values[0] + '</span><span class="trend-arrow">→</span>' +
+      '<span class="trend-val">' + t.values[1] + '</span><span class="trend-arrow">→</span>' +
+      '<span class="trend-val last">' + t.values[2] + '</span><span class="tag ' + tag.cls + '">' + tag.text + '</span></span></div>' +
+      '<span class="trend-note">' + t.note + '</span></div>';
+  }).join('');
+  const an = coachAnalysis.map((a) => '<span class="analysis-item">· ' + a + '</span>').join('');
+  const fu = followUps.map((f) => '<div class="follow-row"><span class="follow-dept">' + f.dept + '</span><span class="follow-reason">' + f.reason + '</span></div>').join('');
+  return '<div class="page-head"><h1>体检档案 · Song少</h1><p>2024-2026 三年趋势 · 教练结合分析</p></div>' +
+    card('历年报告', '3 次', '', tl) +
+    card('关键指标趋势', '2024 / 2025 / 2026', '', tr) +
+    card('教练解读', '结合三年报告', '', an) +
+    card('复查提醒', '', 'blue', fu);
+}
+
 function viewMine() {
   const rows = state.weights.slice(0, 7).map((w, i) => {
     const prev = state.weights[i + 1];
@@ -497,12 +565,14 @@ const icons = {
   today: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V21h4.5v-5.5h4V21h4.5V9.5"/>',
   training: '<path d="M8.5 12h7"/><path d="M6 8.5v7"/><path d="M18 8.5v7"/><path d="M3 10.5v3"/><path d="M21 10.5v3"/>',
   diet: '<path d="M4 12.5c0 4.4 3.6 8 8 8s8-3.6 8-8H4Z"/><path d="M9.5 9V7"/><path d="M14.5 9V7"/>',
+  health: '<path d="M3 12h4l2.5-6 4 12 2.5-6H21"/>',
   mine: '<circle cx="12" cy="7.5" r="3.5"/><path d="M5 20c.9-3.6 3.7-5.5 7-5.5s6.1 1.9 7 5.5"/>'
 };
 const tabs = [
   { key: 'today', label: '今日' },
   { key: 'training', label: '训练' },
   { key: 'diet', label: '饮食' },
+  { key: 'health', label: '体检' },
   { key: 'mine', label: '我的' }
 ];
 
@@ -512,6 +582,7 @@ function render() {
   if (tab === 'today') view.innerHTML = viewToday();
   else if (tab === 'training') view.innerHTML = viewTraining();
   else if (tab === 'diet') view.innerHTML = viewDiet();
+  else if (tab === 'health') view.innerHTML = viewHealth();
   else view.innerHTML = viewMine();
 
   document.getElementById('tabbar').innerHTML = tabs.map((t) =>
