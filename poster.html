@@ -49,22 +49,28 @@ body::before {
   overflow: hidden;
   box-shadow: 0 24px 64px rgba(0,0,0,.6), 0 0 48px rgba(79,179,232,.08);
 }
-.canvas::after {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  inset: -16px;
-  background: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Cinematic%20dark%20gym%2C%20athletic%20muscular%20man%20performing%20barbell%20back%20squat%2C%20side%20view%2C%20dramatic%20ice-blue%20rim%20light%2C%20deep%20black%20shadows%2C%20subtle%20haze%2C%20photorealistic%2C%20moody%2C%20high%20contrast&image_size=portrait_16_9') center/cover no-repeat;
-  filter: blur(10px) brightness(.42) saturate(.9);
-  transform: scale(1.06);
-  pointer-events: none;
-}
 .canvas::before {
   content: '';
   position: absolute;
   top: 0; left: 32px; right: 32px;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(79,179,232,.6), transparent);
+}
+.canvas::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -16px;
+  background-image:
+    url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Cinematic%20dark%20gym%2C%20muscular%20man%20performing%20barbell%20deadlift%2C%20moment%20of%20lockout%2C%20side%20view%2C%20dramatic%20ice-blue%20rim%20light%2C%20deep%20black%20shadows%2C%20subtle%20haze%2C%20photorealistic%2C%20moody%2C%20high%20contrast&image_size=portrait_16_9'),
+    url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Cinematic%20dark%20gym%2C%20muscular%20man%20slamming%20battle%20ropes%2C%20rope%20waves%20with%20ice-blue%20light%20trails%2C%20dynamic%20motion%2C%20deep%20black%20shadows%2C%20photorealistic%2C%20moody%2C%20high%20contrast&image_size=portrait_16_9'),
+    url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Cinematic%20dark%20track%2C%20male%20sprinter%20bursting%20from%20start%2C%20silhouette%20with%20ice-blue%20rim%20light%20and%20speed%20lines%2C%20deep%20black%20background%2C%20photorealistic%2C%20moody%2C%20high%20contrast&image_size=portrait_16_9');
+  background-repeat: no-repeat;
+  background-position: center top, center center, center bottom;
+  background-size: 100% 34.5%, 100% 34.5%, 100% 34.5%;
+  filter: blur(10px) brightness(.42) saturate(.9);
+  transform: scale(1.06);
+  pointer-events: none;
 }
 .brand {
   font-size: 11px;
