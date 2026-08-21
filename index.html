@@ -146,7 +146,11 @@ body {
 .footer-card p { margin-top: 6px; font-size: 12px; color: var(--t2); line-height: 1.7; }
 
 /* 饮食页 */
-.day-scroll { display: flex; overflow-x: auto; margin: 12px -16px; padding: 0 16px; gap: 8px; scrollbar-width: none; }
+.week-scroll { display: flex; overflow-x: auto; margin: 12px -16px 8px; padding: 0 16px; gap: 8px; scrollbar-width: none; }
+.week-scroll::-webkit-scrollbar { display: none; }
+.week-chip { flex-shrink: 0; height: 36px; display: flex; align-items: center; justify-content: center; padding: 0 14px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; font-size: 11px; color: var(--t2); cursor: pointer; transition: all .2s; white-space: nowrap; }
+.week-chip.active { background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-color: transparent; color: #0a1620; font-weight: 600; box-shadow: var(--glow-primary); }
+.day-scroll { display: flex; overflow-x: auto; margin: 0 -16px 12px; padding: 0 16px; gap: 8px; scrollbar-width: none; }
 .day-scroll::-webkit-scrollbar { display: none; }
 .day-chip { flex-shrink: 0; width: 64px; height: 32px; display: flex; align-items: center; justify-content: center; background: var(--card); border: 1px solid var(--border); border-radius: 999px; box-shadow: var(--shadow); font-size: 12px; color: var(--t2); cursor: pointer; transition: all .2s; }
 .day-chip.active { background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-color: transparent; color: #1a1408; font-weight: 600; box-shadow: var(--glow-primary); }
@@ -266,7 +270,16 @@ const weeklyPlan = [
     { name: '全身拉伸/泡沫轴放松', sets: '15-20分钟', rest: '—', tips: '重点胸、背、髋部灵活性，配合深呼吸' } ] }
 ];
 
-const dietDays = [
+const WEEK_CAP = 4;
+function weekLabel(weekStart, index) {
+  const names = ['本周', '上周', '前2周', '前3周'];
+  const start = new Date(weekStart + 'T00:00:00');
+  const end = new Date(start);
+  end.setDate(start.getDate() + 6);
+  const fmt = (d) => String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  return (names[index] || '') + ' ' + fmt(start) + '~' + fmt(end);
+}
+const dietWeeks = [{ weekStart: '2026-08-17', days: [
   { day: 1, label: '周一', source: 'company', meals: [
     { meal: '早餐', items: ['煮鸡蛋', '绿豆浆', '蒸山芋+玉米', '炒豆芽'], tip: '酱香饼跳过，优质蛋白+粗粮优先' },
     { meal: '午餐', items: ['香酥鸡腿排(少量)', '地皮菜鸡蛋烧豆腐', '青椒土豆肉丝', '西红柿筒骨汤'], tip: '米饭吃2/3，先菜后肉最后饭' },
@@ -295,7 +308,7 @@ const dietDays = [
     { meal: '早餐', items: ['无糖酸奶', '燕麦+坚果少量', '煮鸡蛋', '蓝莓/苹果'], tip: '慢碳+蛋白开启休息日' },
     { meal: '午餐', items: ['虾仁炒蛋', '白灼蔬菜', '玉米1根'], tip: '清淡为主，为下周蓄力' },
     { meal: '晚餐', items: ['豆腐蔬菜汤', '全麦馒头半个'], tip: '轻断食感晚餐，不饿即可' } ] }
-];
+] }].slice(0, WEEK_CAP);
 
 const avoidList = ['红油拌面', '油条', '卤猪蹄(大量)', '果汁/含糖饮料', '浓茶/浓咖啡', '大量腌菜(高钠)'];
 const hydrationProtocol = [
@@ -346,6 +359,7 @@ function save() {
 let tab = 'today';
 let trainExpanded = weekday();
 let dietSelected = weekday();
+let dietWeek = 0;
 
 /* ============ 操作 ============ */
 function switchTab(t) { tab = t; render(); }
@@ -361,6 +375,7 @@ function addWater(ml) {
 }
 function setTrainDay(d) { trainExpanded = trainExpanded === d ? 0 : d; render(); }
 function setDietDay(d) { dietSelected = d; render(); }
+function setDietWeek(i) { dietWeek = i; render(); }
 function recordWeight() {
   const input = document.getElementById('weightInput');
   const value = parseFloat(input.value);
@@ -398,7 +413,7 @@ function card(title, extra, theme, body) {
 function viewToday() {
   const wd = weekday();
   const plan = weeklyPlan[wd - 1];
-  const diet = dietDays[wd - 1];
+  const diet = dietWeeks[0].days[wd - 1];
   const water = state.water[todayKey()] || 0;
   const checked = !!state.workout[todayKey()];
   const preview = plan.exercises.slice(0, 3).map((ex) =>
@@ -415,7 +430,7 @@ function viewToday() {
     '<div class="track"><div class="fill" style="width:' + Math.min(100, Math.round(water / WATER_GOAL * 100)) + '%"></div></div>' +
     '<div class="water-btns"><button class="btn water" onclick="addWater(250)">+250ml</button><button class="btn water-soft" onclick="addWater(500)">+500ml</button></div>' +
     '<div class="tip-text">左肾结石4×3mm+双肾结晶：小口多次、别等渴了才喝，训练后加补500ml。</div>') +
-  card('今日饮食建议', diet.source === 'company' ? '公司食堂' : '周末', '',
+  card('今日饮食建议', diet.source === 'company' ? '公司食堂' : '教练计划', '',
     diet.meals.map((m) => '<div class="meal-row"><span class="meal-label">' + m.meal + '</span><span class="meal-items">' + m.items.join(' + ') + '</span></div>').join('')) +
   '<div class="tip-card"><b>教练提示</b><p>' + healthTips[wd - 1] + '</p></div>';
 }
@@ -442,13 +457,15 @@ function viewTraining() {
 }
 
 function viewDiet() {
-  const diet = dietDays[dietSelected - 1];
-  const chips = dietDays.map((d) => '<div class="day-chip ' + (dietSelected === d.day ? 'active' : '') + '" onclick="setDietDay(' + d.day + ')">' + d.label + '</div>').join('');
+  const week = dietWeeks[dietWeek];
+  const diet = week.days[dietSelected - 1];
+  const weekChips = dietWeeks.map((w, i) => '<div class="week-chip ' + (dietWeek === i ? 'active' : '') + '" onclick="setDietWeek(' + i + ')">' + weekLabel(w.weekStart, i) + '</div>').join('');
+  const chips = week.days.map((d) => '<div class="day-chip ' + (dietSelected === d.day ? 'active' : '') + '" onclick="setDietDay(' + d.day + ')">' + d.label + '</div>').join('');
   const meals = diet.meals.map((m) =>
     '<div class="meal-block"><div class="meal-head"><span class="label">' + m.meal + '</span>' + (m.tip ? '<span class="tip">' + m.tip + '</span>' : '') + '</div>' +
     '<div class="item-wrap">' + m.items.map((it) => '<span class="tag green">' + it + '</span>').join('') + '</div></div>').join('');
-  return '<div class="day-scroll">' + chips + '</div>' +
-    card(diet.source === 'company' ? '公司食堂选菜' : '周末饮食建议', diet.label + ' · ' + (diet.source === 'company' ? '公司食堂' : '自制'), '', meals) +
+  return '<div class="week-scroll">' + weekChips + '</div><div class="day-scroll">' + chips + '</div>' +
+    card(diet.source === 'company' ? '公司食堂选菜' : '教练周末计划', weekLabel(week.weekStart, dietWeek) + ' · ' + (diet.source === 'company' ? '公司食堂' : '教练计划'), '', meals) +
     card('补水协议', '目标2500ml+/天', 'blue', hydrationProtocol.map((h) =>
       '<div class="hyd-row"><span class="hyd-time">' + h.time + '</span><span class="hyd-amount">' + h.amount + '</span><span class="hyd-note">' + h.note + '</span></div>').join('')) +
     card('少吃或避免', '', 'orange', '<div class="item-wrap">' + avoidList.map((a) => '<span class="tag red">' + a + '</span>').join('') + '</div><div class="tip-text">肾结石+肾结晶特护：避免浓茶、浓咖啡与含糖饮料，腌菜高钠控量。</div>') +
