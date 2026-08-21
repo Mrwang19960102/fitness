@@ -26,6 +26,15 @@ body {
   position: relative;
   overflow-x: hidden;
 }
+.bg {
+  position: fixed;
+  inset: -24px;
+  background: url('https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Cinematic%20dark%20gym%2C%20athletic%20muscular%20man%20performing%20barbell%20back%20squat%2C%20side%20view%2C%20dramatic%20ice-blue%20rim%20light%2C%20deep%20black%20shadows%2C%20subtle%20haze%2C%20photorealistic%2C%20moody%2C%20high%20contrast&image_size=portrait_16_9') center/cover no-repeat;
+  filter: blur(12px) brightness(.4) saturate(.9);
+  transform: scale(1.06);
+  pointer-events: none;
+  z-index: 0;
+}
 body::before {
   content: '';
   position: fixed;
@@ -34,6 +43,7 @@ body::before {
     radial-gradient(600px 300px at 20% 0%, rgba(79,179,232,.12), transparent 60%),
     radial-gradient(500px 280px at 85% 100%, rgba(103,212,245,.08), transparent 60%);
   pointer-events: none;
+  z-index: 1;
 }
 .canvas {
   width: 100%;
@@ -44,6 +54,7 @@ body::before {
   padding: 40px 32px 32px;
   text-align: center;
   position: relative;
+  z-index: 2;
   box-shadow: 0 24px 64px rgba(0,0,0,.6), 0 0 48px rgba(79,179,232,.08);
 }
 .canvas::before {
@@ -106,6 +117,7 @@ body::before {
 </style>
 </head>
 <body>
+<div class="bg"></div>
 <div class="canvas">
   <div class="brand">Premium Dark</div>
   <div class="title">松·<em>健身</em></div>
