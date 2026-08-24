@@ -573,11 +573,14 @@ function viewHealth() {
       '<span class="trend-val last">' + t.values[2] + '</span><span class="tag ' + tag.cls + '">' + tag.text + '</span></span></div>' +
       '<span class="trend-note">' + t.note + '</span></div>';
   }).join('');
+  const nt = healthNotes.map((n) =>
+    '<div class="note-item"><div class="note-head"><span class="t">' + n.title + '</span><span class="tag ' + (n.level === 'warning' ? 'orange' : 'gray') + '">' + (n.level === 'warning' ? '重点关注' : '保持观察') + '</span></div><div class="note-text">' + n.text + '</div></div>').join('');
   const an = coachAnalysis.map((a) => '<span class="analysis-item">· ' + a + '</span>').join('');
   const fu = followUps.map((f) => '<div class="follow-row"><span class="follow-dept">' + f.dept + '</span><span class="follow-reason">' + f.reason + '</span></div>').join('');
   return '<div class="page-head"><h1>体检档案 · Song少</h1><p>2023-2026 四年趋势 · 教练结合分析</p></div>' +
     card('历年报告', '4 次', '', tl) +
     card('关键指标趋势', '2023 → 2026', '', tr) +
+    card('体检健康注意事项', '报告 ' + profile.reportDate, '', nt) +
     card('教练解读', '结合四年报告', '', an) +
     card('复查提醒', '', 'blue', fu);
 }
