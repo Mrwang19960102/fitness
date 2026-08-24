@@ -597,9 +597,7 @@ function viewMine() {
   '<div class="stats-grid"><div class="stat-item"><b>' + totalWorkouts() + '</b><span>累计打卡次</span></div><div class="stat-divider"></div><div class="stat-item"><b class="blue">' + totalWaterL() + '</b><span>累计饮水L</span></div><div class="stat-divider"></div><div class="stat-item"><b>' + (latestWeight() - profile.goalWeight).toFixed(1) + '</b><span>距目标kg</span></div></div>' +
   card('体重记录', '晨起如厕后称重 · 同日重记为修改', '',
     '<div class="weight-input-row"><input id="weightInput" type="number" step="0.1" placeholder="输入今日体重，如 70.5"><button class="btn primary" onclick="recordWeight()">记录</button></div>' +
-    (state.weights.length ? '<div style="margin-top:12px;border-top:1px solid var(--divider)">' + rows + '</div>' : '<div class="empty">暂无记录，先记下今天的体重吧</div>')) +
-  card('体检健康注意事项', '报告 ' + profile.reportDate, '', healthNotes.map((n) =>
-    '<div class="note-item"><div class="note-head"><span class="t">' + n.title + '</span><span class="tag ' + (n.level === 'warning' ? 'orange' : 'gray') + '">' + (n.level === 'warning' ? '重点关注' : '保持观察') + '</span></div><div class="note-text">' + n.text + '</div></div>').join(''));
+    (state.weights.length ? '<div style="margin-top:12px;border-top:1px solid var(--divider)">' + rows + '</div>' : '<div class="empty">暂无记录，先记下今天的体重吧</div>'));
 }
 
 /* ============ 导航 ============ */
