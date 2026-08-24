@@ -244,41 +244,45 @@ const typeLabel = { strength: '力量', cardio: '有氧', sport: '球类', rest:
 const typeColor = { strength: 'green', cardio: 'blue', sport: 'orange', rest: 'gray' };
 
 const weeklyPlan = [
-  { day: 1, title: '力量 · 推日', type: 'strength', duration: '约50分钟', focus: '胸 / 肩 / 三头', note: '训练后补水500ml；可加2组开合跳，辅助小结石排出。', exercises: [
-    { name: '热身：快走+肩关节活动', sets: '5分钟', rest: '—', tips: '微微出汗即可，激活肩袖' },
-    { name: '杠铃卧推', sets: '4×8-12', rest: '休息90秒', tips: '肩胛后收下沉，杠铃触下胸，核心收紧' },
-    { name: '上斜哑铃推举', sets: '3×10-12', rest: '休息75秒', tips: '凳面30度，感受上胸收缩' },
-    { name: '坐姿哑铃肩推', sets: '3×10-12', rest: '休息75秒', tips: '腰背贴紧椅背，避免反弓' },
-    { name: '哑铃侧平举', sets: '4×12-15', rest: '休息60秒', tips: '举至肩高，控制下放速度' },
-    { name: '绳索三头下压', sets: '3×12-15', rest: '休息60秒', tips: '大臂固定体侧，只动前臂' } ] },
-  { day: 2, title: '有氧 · 核心', type: 'cardio', duration: '约45分钟', focus: '心肺 / 腰腹核心', note: '间歇跑每结束2组补水200ml。', exercises: [
-    { name: '热身：快走', sets: '5分钟', rest: '—', tips: '逐步提升心率' },
-    { name: '跑步机间歇：快1分+慢2分', sets: '×6组', rest: '组间慢走', tips: '快跑以呼吸微喘为准（约10-12km/h），心率不超过165' },
-    { name: '平板支撑', sets: '3×45-60秒', rest: '休息45秒', tips: '身体一条直线，不塌腰不撅臀' },
-    { name: '死虫式', sets: '3×12/侧', rest: '休息45秒', tips: '下背贴地，对侧手脚交替伸展' },
-    { name: '侧平板支撑', sets: '3×30秒/侧', rest: '休息45秒', tips: '髋部上顶，躯干不后仰' } ] },
-  { day: 3, title: '力量 · 拉日+体态', type: 'strength', duration: '约50分钟', focus: '背 / 二头 / 圆肩矫正', note: '久坐间隙每小时起身做1组弹力带扩胸。', exercises: [
-    { name: '热身：肩背动态拉伸', sets: '5分钟', rest: '—', tips: '猫式+扩胸各10次' },
+  { day: 1, title: '午间轻活动 · 蓄力', type: 'rest', duration: '约30分钟', focus: '激活 / 为晚间专项蓄力', note: '今晚18:30-20:30乒乓球高强度专项，午间不安排大强度；下午补水600ml储备。', exercises: [
+    { name: '饭后散步', sets: '10分钟', rest: '—', tips: '午餐七分饱，散步助消化再开始' },
+    { name: '髋肩灵活性+猫式伸展', sets: '10分钟', rest: '—', tips: '轻度激活，不追求疲劳' },
+    { name: '平板支撑', sets: '2×30秒', rest: '休息45秒', tips: '低容量核心激活即可' } ] },
+  { day: 1, title: '乒乓球 · 高强度专项', type: 'sport', duration: '120分钟', focus: '专项技术 / 灵敏 / 心肺', note: '全程补水800-1000ml；练后1小时内补蛋白+水500ml。戴好眼镜上场。', exercises: [
+    { name: '热身：慢跑+侧向滑步+腕踝膝激活', sets: '15分钟', rest: '—', tips: '高强度课必须充分热身' },
+    { name: '专项多球/对抗训练', sets: '90分钟', rest: '每15-20分钟补水150-200ml', tips: '高级强度，注意步法还原与重心交换' },
+    { name: '拉伸放松', sets: '15分钟', rest: '—', tips: '重点小腿、大腿、前臂与肩颈' } ] },
+  { day: 2, title: '午间力量 · 背日+腹', type: 'strength', duration: '约50分钟', focus: '背阔 / 上背 / 腹部', note: '午餐七分饱、饭后30-40分钟再开练；练后补水500ml。', exercises: [
+    { name: '热身：快走+肩背动态拉伸', sets: '5分钟', rest: '—', tips: '猫式+扩胸各10次' },
     { name: '高位下拉', sets: '4×8-12', rest: '休息90秒', tips: '挺胸，肘领先向下拉至上胸' },
     { name: '坐姿划船', sets: '4×10-12', rest: '休息75秒', tips: '肩胛后挤，躯干不前后摆动' },
-    { name: '面拉', sets: '4×15', rest: '休息60秒', tips: '拉向面部，感受后肩与上背，圆肩矫正关键动作', tags: ['体态矫正'] },
     { name: '单臂哑铃划船', sets: '3×10/侧', rest: '休息60秒', tips: '背部发力，避免耸肩' },
-    { name: '哑铃弯举', sets: '3×12', rest: '休息60秒', tips: '肘部固定，控制离心' },
-    { name: '弹力带扩胸', sets: '3×20', rest: '休息45秒', tips: '改善圆肩，肩胛骨向中间挤压', tags: ['体态矫正'] } ] },
-  { day: 4, title: '乒乓球 · 趣味有氧', type: 'sport', duration: '约60分钟', focus: '灵敏 / 心肺 / 反应', note: '戴好眼镜上场；间歇补水，每次150-200ml。', exercises: [
-    { name: '热身：慢跑+侧向移动', sets: '10分钟', rest: '—', tips: '重点活动踝、膝、腕关节' },
-    { name: '乒乓球对打/多球练习', sets: '40分钟', rest: '每10分钟补水', tips: '中等强度，心率保持120-150' },
-    { name: '拉伸放松', sets: '10分钟', rest: '—', tips: '重点拉伸小腿、前臂与肩颈' } ] },
-  { day: 5, title: '力量 · 腿日+核心', type: 'strength', duration: '约50分钟', focus: '下肢 / 臀腿 / 核心', note: '练前补水500ml；练后加2组开合跳辅助排石，并补水500-700ml。', exercises: [
-    { name: '热身：快走+髋关节活动', sets: '5分钟', rest: '—', tips: '徒手深蹲10次激活' },
+    { name: '面拉', sets: '4×15', rest: '休息60秒', tips: '圆肩矫正关键动作，拉向面部', tags: ['体态矫正'] },
+    { name: '卷腹', sets: '3×15', rest: '休息45秒', tips: '下背贴地，呼气起身' },
+    { name: '平板支撑', sets: '3×45秒', rest: '休息45秒', tips: '身体一条直线，不塌腰' } ] },
+  { day: 3, title: '午间力量 · 腿日+腹', type: 'strength', duration: '约50分钟', focus: '股四头 / 臀 / 腘绳 / 腹部', note: '练前补水500ml；练后补水500-700ml+2组开合跳辅助排石。', exercises: [
+    { name: '热身：快走+徒手深蹲激活', sets: '5分钟', rest: '—', tips: '髋膝踝充分活动' },
     { name: '杠铃深蹲/高脚杯深蹲', sets: '4×8-10', rest: '休息120秒', tips: '腰背挺直，蹲至大腿与地面平行' },
     { name: '腿举', sets: '3×10-12', rest: '休息90秒', tips: '膝盖对准脚尖，不锁死' },
-    { name: '罗马尼亚硬拉', sets: '3×10-12', rest: '休息90秒', tips: '髋链，感受腘绳肌拉伸，不弓背' },
+    { name: '罗马尼亚硬拉', sets: '3×10-12', rest: '休息90秒', tips: '髋铰链，感受腘绳肌拉伸，不弓背' },
     { name: '坐姿腿弯举', sets: '3×12', rest: '休息60秒', tips: '控制离心2秒' },
     { name: '提踵', sets: '3×15', rest: '休息45秒', tips: '顶端停顿1秒' },
-    { name: '卷腹', sets: '3×15', rest: '休息45秒', tips: '下背贴地，呼气起身' } ] },
-  { day: 6, title: '自选有氧 · 户外', type: 'cardio', duration: '约60分钟', focus: '慢速有氧 / 放松身心', note: '天气好优先户外，增加日照与放松。', exercises: [
-    { name: '户外慢跑/快走/爬山', sets: '5-8km', rest: '—', tips: '可以正常聊天的配速，每20分钟补水一次' } ] },
+    { name: '死虫式', sets: '3×12/侧', rest: '休息45秒', tips: '下背贴地，对侧手脚交替' } ] },
+  { day: 4, title: '午间燃脂 · 有氧+核心专项', type: 'cardio', duration: '约50分钟', focus: '减脂 / 腹部雕刻', note: '间歇每2组补水200ml；核心日与减脂有氧结合，塑形效率最高。', exercises: [
+    { name: '跑步机间歇：快1分+慢2分', sets: '×6组', rest: '组间慢走', tips: '快跑微喘为准（10-12km/h），心率不超165' },
+    { name: '悬垂举腿/仰卧举腿', sets: '3×12', rest: '休息60秒', tips: '下腹关键动作，控制不借力' },
+    { name: '绳索卷腹/跪姿卷腹', sets: '3×15', rest: '休息60秒', tips: '呼气卷起，感受腹直肌挤压' },
+    { name: '俄罗斯转体', sets: '3×20', rest: '休息45秒', tips: '躯干旋转控制速度' },
+    { name: '侧平板支撑', sets: '3×30秒/侧', rest: '休息45秒', tips: '髋部上顶，雕刻侧腹线条' } ] },
+  { day: 5, title: '午间力量 · 后链复合+腹', type: 'strength', duration: '约50分钟', focus: '背+腿后链 / 全身力量', note: '硬拉日补水要足：练前500ml+练后500-700ml。', exercises: [
+    { name: '热身：快走+髋铰链徒手练习', sets: '5分钟', rest: '—', tips: '激活臀腿后链' },
+    { name: '硬拉(杠铃/哑铃)', sets: '4×6-8', rest: '休息120秒', tips: '腰背中立位，杠铃贴身拉起' },
+    { name: '臀推', sets: '3×10-12', rest: '休息90秒', tips: '顶端夹臀停顿1秒' },
+    { name: '杠铃划船', sets: '4×8-10', rest: '休息90秒', tips: '躯干45度稳定，拉向下腹' },
+    { name: '山羊挺身', sets: '3×12', rest: '休息60秒', tips: '强化下背与臀，顶端不反弓' },
+    { name: '卷腹+平板超级组', sets: '3×(15+30秒)', rest: '休息60秒', tips: '收尾核心燃烧组' } ] },
+  { day: 6, title: '自选有氧 · 户外燃脂', type: 'cardio', duration: '约60分钟', focus: '慢速有氧 / 放松身心', note: '天气好优先户外；想完全休息也可改为散步+拉伸。', exercises: [
+    { name: '户外慢跑/快走/爬山/骑行', sets: '5-8km', rest: '—', tips: '可以正常聊天的配速，每20分钟补水一次' } ] },
   { day: 7, title: '休息 · 拉伸恢复', type: 'rest', duration: '15-20分钟', focus: '恢复 / 灵活性', note: '休息日饮水目标不变，保持2500ml。', exercises: [
     { name: '全身拉伸/泡沫轴放松', sets: '15-20分钟', rest: '—', tips: '重点胸、背、髋部灵活性，配合深呼吸' } ] }
 ];
@@ -489,18 +493,20 @@ function card(title, extra, theme, body) {
 
 function viewToday() {
   const wd = weekday();
-  const plan = weeklyPlan[wd - 1];
+  const plans = weeklyPlan.filter((p) => p.day === wd);
+  const plan = plans[0];
   const diet = dietWeeks[0].days[wd - 1];
   const water = state.water[todayKey()] || 0;
   const checked = !!state.workout[todayKey()];
   const preview = plan.exercises.slice(0, 3).map((ex) =>
     '<div class="row"><span class="name">' + ex.name + '</span><span class="sets">' + ex.sets + '</span></div>').join('');
+  const extraPlan = plans.length > 1 ? '<div style="margin-top:10px"><span class="tag orange">' + typeLabel[plans[1].type] + '</span><b style="font-size:15px;margin-left:6px">' + plans[1].title + ' · ' + plans[1].duration + '</b><div class="tip-text" style="margin-top:4px">' + plans[1].focus + '</div></div>' : '';
   return '' +
   '<div class="header"><div class="header-top"><div><div class="greeting">你好，Song少</div><div class="date">' + fmtDate() + ' · 周' + CN[wd - 1] + ' · 私人教练已就位</div></div><span class="goal-chip">目标 ' + profile.goalWeight + 'kg</span></div>' +
   '<div class="header-stats"><div class="stat-item"><b>' + bmi() + '</b><span>体质指数</span></div><div class="stat-divider"></div><div class="stat-item"><b>' + latestWeight().toFixed(1) + '</b><span>体重kg</span></div><div class="stat-divider"></div><div class="stat-item"><b>' + profile.heartRate + '</b><span>静息心率</span></div></div></div>' +
-  card('今日训练', plan.duration, '',
+  card('今日训练', plans.map((p) => p.duration).join(' + '), '',
     '<div><span class="tag ' + (plan.type === 'rest' ? 'gray' : 'green') + '">' + typeLabel[plan.type] + '</span><b style="font-size:15px">' + plan.title + '</b></div>' +
-    '<div class="tip-text" style="margin-top:4px">' + plan.focus + '</div>' +
+    '<div class="tip-text" style="margin-top:4px">' + plan.focus + '</div>' + extraPlan +
     (plan.exercises.length ? '<div style="margin-top:12px">' + preview + (plan.exercises.length > 3 ? '<div class="more">还有 ' + (plan.exercises.length - 3) + ' 个动作，详见「训练」页</div>' : '') + '</div>' : '') +
     '<button class="btn accent ' + (checked ? 'done' : '') + '" onclick="toggleWorkout()">' + (checked ? '已打卡 · 继续保持' : (plan.type === 'rest' ? '完成休息打卡' : '完成训练打卡')) + '</button>') +
   card('饮水打卡', water + '/' + WATER_GOAL + 'ml', 'blue',
@@ -529,7 +535,7 @@ function viewTraining() {
       '<div class="day-info"><div class="day-title">' + p.title + '</div><div class="day-meta">' + p.duration + ' · ' + p.focus + '</div></div>' +
       '<div class="day-right"><span class="tag ' + typeColor[p.type] + '">' + typeLabel[p.type] + '</span>' + (p.day === today ? '<span class="today-tag">今日</span>' : '') + '</div></div>' + body + '</div>';
   }).join('');
-  return '<div class="page-head"><h1>每周训练计划</h1><p>推/拉/腿分化 + 有氧与乒乓球 · 每次40-60分钟</p></div>' + days +
+  return '<div class="page-head"><h1>每周训练计划</h1><p>午间训练 + 周一晚乒乓球专项 · 重点背/腿/腹</p></div>' + days +
     '<div class="footer-card"><b>渐进与补水原则</b><p>每2周小幅增加重量或次数；每天晨起如厕后称重，跟踪周均值，目标每周降0.3-0.5kg。</p><p>补水铁律：训练前300-500ml，训练中每15-20分钟150-200ml，训练后500-700ml。</p></div>';
 }
 
